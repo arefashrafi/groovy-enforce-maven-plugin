@@ -6,8 +6,8 @@ import org.apache.maven.plugins.annotations.Mojo
 import org.apache.maven.plugins.annotations.Parameter
 import org.codehaus.groovy.control.CompilerConfiguration
 
-@Mojo(name = "enforce")
-class Enforce extends AbstractMojo {
+@Mojo(name = "compile-static")
+class CompileStatic extends AbstractMojo {
 
     @Parameter(name = "path", property = "path")
     private String path

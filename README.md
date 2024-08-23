@@ -7,7 +7,7 @@ mvn clean install -U
 ```xml
 
 <plugin>
-    <groupId>se.lf.csp</groupId>
+    <groupId>io.ashraare</groupId>
     <artifactId>groovy-enforce-maven-plugin</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <executions>

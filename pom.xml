@@ -6,19 +6,13 @@
 
     <groupId>se.lf.csp</groupId>
     <artifactId>groovy-enforce-maven-plugin</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
     <dependencies>
         <dependency>
-            <groupId>org.apache.groovy</groupId>
-            <artifactId>groovy-all</artifactId>
-            <version>4.0.14</version>
-            <type>pom</type>
-        </dependency>
-        <dependency>
             <groupId>org.apache.maven</groupId>
             <artifactId>maven-plugin-api</artifactId>
-            <version>3.0</version>
+            <version>3.9.8</version>
             <scope>provided</scope>
         </dependency>
 
@@ -50,63 +44,6 @@
                             <!-- good practice is to generate help mojo for plugin -->
                             <goal>helpmojo</goal>
                         </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <!-- https://github.com/groovy/GMavenPlus -->
-                <groupId>org.codehaus.gmavenplus</groupId>
-                <artifactId>gmavenplus-plugin</artifactId>
-                <version>1.13.1</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>addSources</goal>
-                            <goal>addTestSources</goal>
-                            <goal>generateStubs</goal>
-                            <goal>compile</goal>
-                            <goal>generateTestStubs</goal>
-                            <goal>compileTests</goal>
-                            <goal>removeStubs</goal>
-                            <goal>removeTestStubs</goal>
-                        </goals>
-                        <configuration>
-                            <!-- <debug>true</debug> -->
-                            <!--
-                                Will allow implicit mapping of request parameters
-                                https://github.com/spring-projects/spring-framework/wiki/Upgrading-to-Spring-Framework-6.x#parameter-name-retention
-                            -->
-                            <parameters>true</parameters>
-                            <sources>
-                                <source>
-                                    <directory>${project.basedir}/src/main/java</directory>
-                                    <includes>
-                                        <include>**/*.groovy</include>
-                                    </includes>
-                                </source>
-                                <source>
-                                    <directory>${project.basedir}/src/main/groovy</directory>
-                                    <includes>
-                                        <include>**/*.groovy</include>
-                                    </includes>
-                                </source>
-                            </sources>
-                            <testSources>
-                                <testSource>
-                                    <directory>${project.basedir}/src/test/java</directory>
-                                    <includes>
-                                        <include>**/*.groovy</include>
-                                    </includes>
-                                </testSource>
-                                <testSource>
-                                    <directory>${project.basedir}/src/test/groovy</directory>
-                                    <includes>
-                                        <include>**/*.groovy</include>
-                                    </includes>
-                                </testSource>
-                            </testSources>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>

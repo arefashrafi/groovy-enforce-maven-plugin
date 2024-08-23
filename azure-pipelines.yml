@@ -1,0 +1,34 @@
+trigger:
+  branches:
+    include:
+      - "*.*.x"
+
+parameters:
+  - name: forceBuild
+    type: boolean
+    default: false
+  - name: javaVersion
+    type: string
+    default: 21
+  - name: buildTimeout
+    type: number
+    default: 15
+  - name: deployTimeout
+    type: number
+    default: 15
+
+resources:
+  repositories:
+    - repository: pipelines
+      type: git
+      name: azure.pipelines
+      ref: refs/heads/2.x
+
+extends:
+  template: azdo/pipeline-java.yml@pipelines
+  parameters:
+    forceBuild: ${{ parameters.forceBuild }}
+    javaVersion: ${{ parameters.javaVersion }}
+    buildTimeout: ${{ parameters.buildTimeout }}
+    deployTimeout: ${{ parameters.deployTimeout }}
+
